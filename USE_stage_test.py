@@ -10,6 +10,8 @@ import sys
 import re
 from ctypes import *
 
+STAGE_MAX_X=75.3169
+STAGE_MAX_Y=50.1879
 
 class TangoController:
     """Tango 스테이지 컨트롤러 래퍼 클래스"""
@@ -146,6 +148,10 @@ class TangoController:
         """절대 위치로 이동"""
         if not self.connected:
             print("[ERROR] 연결되지 않았습니다")
+            return False
+        
+        if not (0 <= x <= STAGE_MAX_X) or not (0 <= y <= STAGE_MAX_Y):
+            print(f"[ERROR] 이동 범위 초과: X(0~{STAGE_MAX_X}), Y(0~{STAGE_MAX_Y})")
             return False
         
         dx, dy, dz, da = c_double(x), c_double(y), c_double(z), c_double(a)
