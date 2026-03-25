@@ -13,6 +13,8 @@ from ctypes import *
 STAGE_MAX_X=75.3169
 STAGE_MAX_Y=50.1879
 
+
+
 class TangoController:
     """Tango 스테이지 컨트롤러 래퍼 클래스"""
     

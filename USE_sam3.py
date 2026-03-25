@@ -10,8 +10,7 @@ import cv2
 import numpy as np
 from ultralytics.models.sam import SAM3SemanticPredictor
 
-_AI_MODELS_DIR = Path(__file__).resolve().parent.parent / "util" / "ai_models"
-_SAM3_MODEL_PATH = str(_AI_MODELS_DIR / "sam3.pt")
+_SAM3_MODEL_PATH = str(Path(__file__).resolve().parent.parent.parent / "sam3.pt")
 
 
 def _enhance_contrast(image):
